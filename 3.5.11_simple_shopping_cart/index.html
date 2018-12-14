@@ -12,5 +12,80 @@
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
+    <div class="container">
+      <h1>Shopping Cart</h1>
+      <table>
+        <tr>
+          <td class="name">Salmon</td>
+          <td class="price">$60.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <!-- Study notes: The HTML <b> tag is meant for displaying text in bold without conveying any additional importance so it's ok to use it here. Important text can be highlighted using the <strong> tag. -->
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Tuna</td>
+          <td class="price">$50.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Carp</td>
+          <td class="price">$40.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Pork</td>
+          <td class="price">$50.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Beef</td>
+          <td class="price">$40.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Chicken</td>
+          <td class="price">$25.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Cereal</td>
+          <td class="price">$45.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Milk</td>
+          <td class="price">$20.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+        <tr>
+          <td class="name">Sugar</td>
+          <td class="price">$10.00</td>
+          <td class="quantity"><b>QTY</b><input type="number" /></td>
+          <td class="remove"><button>Remove</button></td>
+          <td>$<span class="subTotal">--.--</span></td>
+        </tr>
+      </table>
+      <form>
+        <input class="name" type="text" placeholder="Apple" required/>
+        <input class="price" type="number" placeholder="30" required/>
+        <button id="add">Add</button>
+      </form>
+      <h2>Total Price:  $<span id="total">--.--</span></h2>
+    </div>
   </body>
 </html>
