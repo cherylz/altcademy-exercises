@@ -1,3 +1,1 @@
-lunch time
-finished
-moving to tea time
+This repository contains my solutions to the assignments in Altcademy.
