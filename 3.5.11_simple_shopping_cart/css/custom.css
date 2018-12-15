@@ -1,0 +1,99 @@
+/*            Minimal CSS Reset            */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*            End of CSS Reset            */
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+body {
+  background: url("../img/pexels-photo-1303098.jpeg") no-repeat center/cover fixed;
+}
+
+.container {
+  max-width: 800px;
+  margin: 120px auto;
+}
+
+h1 {
+  font-family: 'Mountains of Christmas', cursive;
+  font-size: 46px;
+  letter-spacing: 10px;
+}
+
+table, form, h2 {
+  margin: 20px;
+}
+
+tr {
+  line-height: 2.2;
+}
+
+td {
+  padding-right: 60px;
+}
+
+td > b {
+  padding-right: 8px;
+  font-size: 14px;
+}
+
+input {
+  outline: none;
+  border: 1px solid #3C8D0D;
+  border-radius: 4px;
+  width: 45px;
+  height: 28px;
+  font-size: 14px;
+}
+
+input:focus {
+  border: 1px solid #023B10;
+}
+
+button {
+  background-color: #3C8D0D;
+  font-size: 12px;
+  color: #f1f1f1;
+  border-radius: 4px;
+  width: 80px;
+  height: 28px;
+}
+
+input, button {
+  vertical-align: middle;
+}
+
+form > input:first-child {
+  width: 80px;
+  height: 38px;
+  margin-right: 20px;
+}
+
+form > input:nth-child(2) {
+  width: 60px;
+  height: 38px;
+  margin-right: 20px;
+}
+
+form > button {
+  font-size: 16px;
+  height: 40px;
+}
