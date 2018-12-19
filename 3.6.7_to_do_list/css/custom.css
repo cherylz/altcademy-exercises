@@ -46,6 +46,7 @@ img {
   color: #f9f9f9;
   border: none;
   border-radius: 3px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
@@ -74,6 +75,7 @@ img {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 13px;
   padding-bottom: 8px;
 }
@@ -81,7 +83,6 @@ img {
 .todo-item {
   display: block;
   position: relative;
-  flex: auto;
   padding-left: 35px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -92,19 +93,20 @@ img {
 
     /* Hide the browser's default checkbox */
 input[type=checkbox] {
-  position: absolute;
-  top: -3px;
+  position: relative;
+  top: 0;
   left: 0;
   opacity: 0;
+  z-index: 999;
   cursor: pointer;
   height: 25px;
   width: 25px;
 }
     /* Create a custom checkbox */
 .custom-checkbox {
-  position: absolute;
-  top: -3px;
-  left: 0;
+  position: relative;
+  top: 0;
+  left: -25px;
   height: 25px;
   width: 25px;
   border: 2px solid #eee;
@@ -142,16 +144,40 @@ input[type=checkbox]:checked ~ .custom-checkbox::after {
   display: block;
 }
 
+.todo-item-wrapper p {
+  flex: auto;
+  margin-left: -13px;
+  margin-right: 30px;
+}
+
     /* Strike through the item when checked */
-input[type=checkbox]:checked ~ .todo-content {
+input[type=checkbox]:checked ~ p {
   text-decoration: line-through;
 }
 
-.remove { margin-right: 10px; }
+    /* Style the remove icon */
+.remove {
+  margin-right: 10px;
+  display: none;
+}
+
+.todo-item-wrapper:hover > .remove {
+  display: block;
+}
 
 .remove > i { color: rgba(0, 0, 0, 0.26); }
 
 .remove > i:hover { color: rgba(0, 0, 0, 0.54); }
+
+    /* Style the input section when a task is being modified */
+.edit-content {
+  border: none;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  width: 100%;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
 
 /*            Styling the add task section            */
 #add-todo {
