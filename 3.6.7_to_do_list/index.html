@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A simple and fun to-do list for you to start small, stay focused and keep shipping.">
+    <meta name="author" content="cheryl zeng">
+    <link rel="icon" href="img/iconfinder_check_2467374.png" type="image/png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+    <title>To Do List</title>
+    <script src="js/application.js"></script>
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <div id="title">
+        <h1>Task List</h1>
+        <!-- Bonus: add a random quote generator -->
+      </div>
+      <div id="filter">
+        <button class="all">All</button>
+        <button class="active">Active</button>
+        <button class="completed">Completed</button>
+      </div>
+      <div id="todo-group">
+        <div class="todo-item-wrapper">
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="custom-checkbox"></span>
+            <p class="todo-content">prepare breakfast</p>
+          </label>
+          <div class="remove"><i class="far fa-trash-alt"></i></div>
+        </div>
+        <div class="todo-item-wrapper">
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="custom-checkbox"></span>
+            <p class="todo-content">prepare breakfast</p>
+          </label>
+          <div class="remove"><i class="far fa-trash-alt"></i></div>
+        </div>
+        <div class="todo-item-wrapper">
+          <label class="todo-item">
+            <input type="checkbox">
+            <span class="custom-checkbox"></span>
+            <p class="todo-content">prepare breakfast</p>
+          </label>
+          <div class="remove"><i class="far fa-trash-alt"></i></div>
+        </div>
+      </div>
+      <div id="add-todo">
+        <!-- Do we need <label> / <form> or not? -->
+        <input type="text" placeholder="Add Task" required/>
+        <span class="add"><i class="fas fa-plus-circle"></i></span>
+      </div>
+    </div>
+  </body>
+</html>

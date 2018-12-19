@@ -1,0 +1,185 @@
+/*            Minimal CSS Reset            */
+html {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  background-color: #E7EAF0;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*            End of CSS Reset            */
+
+/*            Styling the container section           */
+.container {
+  background-color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 80px auto;
+  max-width: 600px;
+  padding: 30px;
+}
+
+.container > div {
+  margin-bottom: 20px;
+}
+
+/*            Styling the filter section            */
+#filter > button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+  color: #f9f9f9;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.all {
+  background-color: #78BCDC;
+}
+
+.active {
+  background-color: #FCB647;
+}
+
+.completed {
+  background-color: #30AD63;
+}
+
+/*            Styling the to-do group section            */
+#todo-group > div {
+  border-bottom: 1px solid #eee;
+}
+
+#todo-group > div:hover {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+.todo-item-wrapper {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 13px;
+  padding-bottom: 8px;
+}
+
+.todo-item {
+  display: block;
+  position: relative;
+  flex: auto;
+  padding-left: 35px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+input[type=checkbox] {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  opacity: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+    /* Create a custom checkbox */
+.custom-checkbox {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  border: 2px solid #eee;
+  border-radius: 4px;
+}
+    /* When the default checkbox is checked, add a green background to the custom checkbox */
+input[type=checkbox]:checked ~ .custom-checkbox {
+  background-color: #30AD63;
+  border-style: none;
+  border-radius: 4px;
+}
+
+    /* Create and style the checkmark in the custom checkbox */
+.custom-checkbox::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 6px;
+  width: 7px;
+  height: 12px;
+  border: solid #f9f9f9;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+    /* When the checkbox is not checked, hide the checkmark  */
+.custom-checkbox::after {
+  display: none;
+}
+
+    /* Show the checkmark when checked */
+input[type=checkbox]:checked ~ .custom-checkbox::after {
+  display: block;
+}
+
+    /* Strike through the item when checked */
+input[type=checkbox]:checked ~ .todo-content {
+  text-decoration: line-through;
+}
+
+.remove { margin-right: 10px; }
+
+.remove > i { color: rgba(0, 0, 0, 0.26); }
+
+.remove > i:hover { color: rgba(0, 0, 0, 0.54); }
+
+/*            Styling the add task section            */
+#add-todo {
+  display: flex;
+  align-items: center;
+}
+
+#add-todo input {
+  border: 2px solid #30AD63;
+  border-radius: 4px;
+  padding: 6px 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  flex: auto;
+}
+
+.add {
+  color: #30AD63;
+  opacity: 0.8;
+  transition: 0.3s;
+  cursor: pointer;
+  height: 34px;
+}
+
+#add-todo > span:hover {
+  opacity: 1;
+}
+
+.add > i {
+  font-size: 34px;
+}
