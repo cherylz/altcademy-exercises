@@ -10,15 +10,19 @@
     <link rel="icon" href="img/iconfinder_check_2467374.png" type="image/png" sizes="32x32">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <title>To Do List</title>
+    <title>To-Do List</title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
     <script src="js/application.js"></script>
     <link href="css/custom.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
       <div id="title">
-        <h1>Task List</h1>
-        <!-- Bonus: add a random quote generator -->
+        <h1>To-Do List</h1>
+        <p><span class="random-quote"></span></p>
       </div>
       <div id="filter">
         <button class="all-btn">All</button>
@@ -26,17 +30,16 @@
         <button class="completed-btn">Completed</button>
       </div>
       <div id="todo-group">
-        <!-- demo only:
+        <!-- Demo only:
         <div class="todo-item-wrapper" data-todoid="233" data-completed="false">
           <input type="checkbox">
           <span></span>
-          <p class="todo-content"><input type="text" class="edit-content" value="prepare breakfast" required/></p>
+          <p class="todo-content"><input type="text" class="edit-content" value="Prepare breakfast" required/></p>
           <div class="remove"><i class="far fa-trash-alt"></i></div>
         </div>
         -->
       </div>
       <div id="add-todo">
-        <!-- Do we need <label> / <form> or not? -->
         <input type="text" placeholder="Add Task" required/>
         <span class="add"><i class="fas fa-plus-circle"></i></span>
       </div>
