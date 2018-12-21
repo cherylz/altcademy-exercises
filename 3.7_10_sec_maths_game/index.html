@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="cheryl zeng">
+    <link rel="icon" href="img/iconfinder_1_1_387516.png" type="image/png" sizes="32x32">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Press+Start+2P" rel="stylesheet">
+    <title>10 Sec Maths Game</title>
+    <script src="js/application.js"></script>
+    <link href="css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>10-Sec Maths Game</h1>
+      <div class="score">
+        <p>Current Score: <span>2</span></p>
+        <p>High Score: <span>30</span></p>
+      </div>
+      <div class="notification">
+        <p><span class="timer">2</span> Second(s) Left</p>
+        <button class="game-font">RESTART</button>
+      </div>
+      <div class="game-area">
+        <p class="question">28 / 7</p>
+        <p>=</p>
+        <input type="number" class="answer">
+      </div>
+      <div class="limit">
+        <p>Number Limit</p>
+        <p><span class="arrow-down">&darr;</span>20<span class="arrow-up">&uarr;</span></p>
+      </div>
+      <div class="level">
+        <span>Level: </span>
+        <input type="checkbox" id="plus" name="plus" checked>
+        <label for="plus">+</label>
+        <input type="checkbox" id="minus" name="minus">
+        <label for="minus">-</label>
+        <input type="checkbox" id="multiply" name="multiply">
+        <label for="multiply">*</label>
+        <input type="checkbox" id="divide" name="divide">
+        <label for="divide">/</label>
+      </div>
+    </div>
+  </body>
+</html>
