@@ -46,13 +46,10 @@ var updateTodoEdited = function (targetNode) {
 };
 
 // Update an edited todo item when it lost focus.
-var editTodoWhenBlur = function () {
-  var editTodo = document.querySelectorAll('.edit-content');
-  for (var i = 0; i < editTodo.length; i++) {
-    editTodo[i].addEventListener('blur', function (event) {
-      updateTodoEdited(event.target);
-    });
-  }
+var editTodoWhenBlur = function (targetNode) {
+  targetNode.addEventListener('blur', function () {
+    updateTodoEdited(targetNode);
+  });
 };
 
 var styleCompletedTodo = function(item) {
@@ -69,7 +66,8 @@ var renderTodoItem = function (id, status, content) {
   var html = '<input type="checkbox">' + '<span></span>' + '<p class="todo-content"><input type="text" class="edit-content" value="' + content + '" required/></p>' + '<div class="remove"><i class="far fa-trash-alt"></i></div>';
   newTodo.innerHTML = html;
   todoGroup.appendChild(newTodo);
-  editTodoWhenBlur();
+  // Add a blur event handler to listen for user edits
+  editTodoWhenBlur(newTodo.querySelector('.edit-content'));
   // Style the completed todo items.
   if (status) {
     newTodo.querySelector('input[type="checkbox"]').checked = true;
