@@ -1,40 +1,81 @@
+// House rules: The integers generated in this game are all positive. In the case of a division, the denominator generated is the multiple of the numerator. If the player doesn't select a level, the question given out will be additions (+) only.
+var result;
+var secondsLeftWithoutBonus;
+var currentScore = 0;
+var highScore = 0;
+var timer = null;
+var signs = ['+'];
+var limit = 10;
 var getRandomInt = function (max) {
   return Math.ceil(Math.random() * max);
 };
-var result;
-var secondsLeftWithoutBonus;
-var bonus = 0;
-var timer = null;
+var getMultiple = function (max, num) {
+  return Math.ceil(Math.random() * Math.floor(max / num)) * num;
+}
 
-var startGame = function () {
-  var num1 = getRandomInt(10);
-  var num2 = getRandomInt(10);
-  var sign = '+';
-  var equal = '=';
-  result = num1 + num2;
+// Get and render a new question
+var newQuestion = function () {
+  if (signs.length === 0) {
+    signs = ['+'];
+    document.querySelector('#plus').checked = true;
+  }
+  var sign = signs[Math.floor(Math.random() * signs.length)];
+  var num1;
+  var num2 = getRandomInt(limit);
+  sign === '/' ? num1 = getMultiple(limit, num2) : num1 = getRandomInt(limit);
   document.querySelector('.num-1').innerText = num1;
-  document.querySelector('.sign').innerText = sign;
   document.querySelector('.num-2').innerText = num2;
-  document.querySelector('.equal').innerText = equal;
+  document.querySelector('.equal').innerText = '=';
   document.querySelector('.answer').placeholder = '';
+  var renderSign = document.querySelector('.sign');
+  var newQ = {
+    '+': function () {
+      renderSign.innerText = '+';
+      result = num1 + num2;
+    },
+    '-': function () {
+      renderSign.innerText = '-';
+      result = num1 - num2;
+    },
+    '*': function () {
+      renderSign.innerText = '*';
+      result = num1 * num2;
+    },
+    '/': function () {
+      renderSign.innerText = '/';
+      result = num1 / num2;
+    }
+  }
+  return newQ[sign]();
 };
 
+// At the start of each new round, add event handlers in <div class="game-area">.
 var setUpGame = function () {
   var answer = document.querySelector('.answer');
   answer.addEventListener('click', startGameAndCountDown);
   answer.addEventListener('keyup', function () { // 'input' also works
     if (Number(this.value) === result) {
-      bonus++;
-      startGame();
+      currentScore++;
+      newQuestion();
       this.value = '';
-      console.log('you got one second bonus');
+      console.log('you got one-sec bonus');
     }
   });
 };
 
 var restartGame = function () {
-  var gameArea = document.querySelector('.game-area');
+  // Render the notification area.
   var notification = document.querySelector('.notification');
+  notification.innerHTML = 'Game Over.';
+  // Render the score area.
+  if (highScore < currentScore) {
+    highScore = currentScore;
+  }
+  currentScore = 0;
+  document.querySelector('.high-score').innerHTML = highScore;
+  document.querySelector('.current-score').innerHTML = currentScore;
+  // Render the game area.
+  var gameArea = document.querySelector('.game-area');
   gameArea.style.border = 'none';
   gameArea.innerHTML = '<button class="restart-btn">RESTART</button>';
   gameArea.querySelector('button').addEventListener('click', function () {
@@ -46,23 +87,19 @@ var restartGame = function () {
 };
 
 var broadcastStatus = function () {
-  var currentScore = document.querySelector('.current-score');
-  var notification = document.querySelector('.notification');
-  var secondsLeftWithBonus = secondsLeftWithoutBonus + bonus;
-  currentScore.innerHTML = bonus;
-  console.log('seconds left without bonus: ', secondsLeftWithoutBonus, ' and seconds left with bonus: ', secondsLeftWithBonus);
+  var secondsLeftWithBonus = secondsLeftWithoutBonus + currentScore;
+  document.querySelector('.current-score').innerHTML = currentScore;
+  // console.log('seconds left without bonus: ', secondsLeftWithoutBonus, ' and seconds left with bonus: ', secondsLeftWithBonus);
   if (secondsLeftWithBonus >= 0) {
-    notification.innerHTML = secondsLeftWithBonus + ' Second(s) Left';
+    document.querySelector('.notification').innerHTML = secondsLeftWithBonus + ' Second(s) Left';
   } else {
-    notification.innerHTML = 'Game Over.';
-    bonus = 0;
     stopCountDown();
     restartGame();
   }
 };
 
 var startGameAndCountDown = function () {
-  startGame();
+  newQuestion();
   var answer = document.querySelector('.answer');
   if (!timer) {
     var startTime = Date.now() + 10000;
@@ -79,4 +116,37 @@ var stopCountDown = function () {
   timer = null;
 };
 
-document.addEventListener('DOMContentLoaded', setUpGame);
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelector('.number-limit').innerText = limit;
+
+  // Record and display player's choice of the number limit.
+  document.querySelector('.arrow-down').addEventListener('click', function () {
+    if (limit > 5) {
+      limit = limit - 5;
+      document.querySelector('.number-limit').innerText = limit;
+    }
+  });
+  document.querySelector('.arrow-up').addEventListener('click', function () {
+    limit = limit + 5;
+    document.querySelector('.number-limit').innerText = limit;
+  });
+
+  // Record player's choice of the game level.
+  var checkbox = document.querySelectorAll('input[type="checkbox"]');
+  for (var i = 0; i < checkbox.length; i++) {
+    checkbox[i].addEventListener('change', function () {
+      if (this.checked === true) {
+        signs.push(this.name);
+      } else {
+        var index = signs.indexOf(this.name);
+        if (index !== -1) {
+          var arr = signs.slice(0, index).concat(signs.slice(index + 1));
+          signs = arr;
+        }
+      }
+      console.log(signs);
+    });
+  }
+
+  setUpGame();
+});

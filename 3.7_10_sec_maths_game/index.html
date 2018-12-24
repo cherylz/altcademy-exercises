@@ -17,13 +17,11 @@
     <div class="container">
       <h1>10-Sec Maths Game</h1>
       <div class="score">
-        <p>Current Score: <span class="current-score">0</span></p>
+        <p>Current Score : <span class="current-score">0</span></p>
         <span>&nbsp&nbsp&nbsp</span>
-        <p>High Score: <span></span></p>
+        <p>High Score : <span class="high-score">?</span></p>
       </div>
-      <div>
-        <p class="notification">10 Seconds Left. Ready to start?</p>
-      </div>
+      <p class="notification">10 Seconds Left. Ready to start?</p>
       <div class="game-area">
         <p class="question">
           <span class="num-1">Challenge</span>
@@ -34,20 +32,25 @@
         <input type="number" class="answer" placeholder="click here to start">
       </div>
       <div class="limit">
-        <p>Number Limit</p>
-        <p><span class="arrow-down">&darr;</span>10<span class="arrow-up">&uarr;</span></p>
+        <p>Number Limit :</p>
+        <p><span class="arrow-down">&darr;</span><span class="number-limit"></span><span class="arrow-up">&uarr;</span></p>
       </div>
       <div class="level">
         <span>Level: </span>
-        <input type="checkbox" id="plus" name="plus" checked>
-        <label for="plus">+</label>
-        <input type="checkbox" id="minus" name="minus">
-        <label for="minus">-</label>
-        <input type="checkbox" id="multiply" name="multiply">
-        <label for="multiply">*</label>
-        <input type="checkbox" id="divide" name="divide">
-        <label for="divide">/</label>
+        <label>
+          <input type="checkbox" id="plus" name="+" checked>+
+        </label>
+        <label>
+          <input type="checkbox" id="minus" name="-">-
+        </label>
+        <label>
+          <input type="checkbox" id="multiply" name="*">×
+        </label>
+        <label>
+          <input type="checkbox" id="divide" name="/">/
+        </label>
       </div>
+      <p class="notes">Notes: By default, the game will start with addition (+) only. You can always make your choice before or during the game.</p>
     </div>
   </body>
 </html>
