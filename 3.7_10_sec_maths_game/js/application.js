@@ -28,25 +28,24 @@ var newQuestion = function () {
   document.querySelector('.equal').innerText = '=';
   document.querySelector('.answer').placeholder = '';
   var renderSign = document.querySelector('.sign');
-  var newQ = {
-    '+': function () {
+  switch (sign) {
+    case '+':
       renderSign.innerText = '+';
       result = num1 + num2;
-    },
-    '-': function () {
+      break;
+    case '-':
       renderSign.innerText = '-';
       result = num1 - num2;
-    },
-    '*': function () {
+      break;
+    case '*':
       renderSign.innerText = '*';
       result = num1 * num2;
-    },
-    '/': function () {
+      break;
+    case '/':
       renderSign.innerText = '/';
       result = num1 / num2;
-    }
+      break;
   }
-  return newQ[sign]();
 };
 
 // At the start of each new round, add event handlers in <div class="game-area">.
@@ -58,7 +57,7 @@ var setUpGame = function () {
       currentScore++;
       newQuestion();
       this.value = '';
-      console.log('you got one-sec bonus');
+      console.log('you got a one-sec bonus');
     }
   });
 };
